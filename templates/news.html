@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'news.css' %}">
+<div class="jumbotron jumbotron-fluid mb-5" style="background-image: url('https://oboi-download.ru/files/wallpapers/490/15474.jpg');">
+        <div class="container text-center py-5">
+            <h1 class="text-white display-3">Новости</h1>
+            <div class="d-inline-flex align-items-center text-white">
+                <p class="m-0"><a class="text-white" href="">Главная</a></p>
+                <i class="fa fa-circle px-3"></i>
+                <p class="m-0">Новости</p>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid pt-5">
+		<hr>
+		{% for n in news %}
+		<div class="container-2">
+			<header>
+				<p class="date">{{ n.date|date:'F jS Y' }}</p>
+			</header>
+			<main>
+				<article>
+					<h2>{{ n.title }}</h2>
+					<img height="300" width="400" src="{{ n.image.url }}" alt="News Image">
+					<br>
+					<p>{{ n.subtitle }}</p>
+				</article>
+
+			</main>
+			<br>
+		</div>
+		{% endfor %}
+        </div>
+    </div>
+
+
+
+{% endblock %}

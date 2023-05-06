@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+
+<div class="container">
+		<form>
+			<h1>Вход</h1>
+			<label for="username">Имя</label>
+			<input type="text" placeholder="Имя" name="username" required>
+
+			<label for="email">Email</label>
+			<input type="email" placeholder="Email" name="email" required>
+
+			<label for="password">Пароль</label>
+			<input type="password" placeholder="Пароль" name="password" required>
+
+			<button type="submit" class="registerbtn">Вход</button>
+		</form>
+	</div>
+{% endblock %}

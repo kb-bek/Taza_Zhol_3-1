@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid mb-5" style="background-image: url('https://d3e1m60ptf1oym.cloudfront.net/c788154b-d830-4c1b-acec-8773e521ca2f/JW_110516_5493_wqxga.jpg');">
+        <div class="container text-center py-5">
+            <h1 class="text-primary mb-4">Улучшим дорогу</h1>
+            <h1 class="text-white display-3 mb-5">Кыргызстана</h1>
+            <div class="mx-auto" style="width: 100%; max-width: 600px;">
+                <div class="input-group">
+                    <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="Поиск">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary px-3">Поиск</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="text-center pb-2">
+                <h6 class="text-primary text-uppercase font-weight-bold">Карта</h6>
+                <h1 class="mb-4">Кыргызстана</h1>
+            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d187124.03596499556!2d74.45177724528106!3d42.8767896615293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389eb7dc91b3c881%3A0x492ebaf57cdee27d!2z0JHQuNGI0LrQtdC6!5e0!3m2!1sru!2skg!4v1683327091001!5m2!1sru!2skg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </div>
+    </div>
+
+        <!-- Video Modal -->
+
+    <!-- About End -->
+
+
+    <!-- Services Start -->
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="text-center pb-2">
+                <h6 class="text-primary text-uppercase font-weight-bold"></h6>
+                <h1 class="mb-4">Помощь граждан</h1>
+            </div>
+        </div>
+    </div>
+    <!-- Services End -->
+
+
+    <!-- Features Start -->
+
+    <!-- Features End -->
+
+
+    <!-- Pricing Plan Start -->
+
+
+    <!-- Team Start -->
+
+
+    <!-- Testimonial Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center pb-2">
+                <h6 class="text-primary text-uppercase font-weight-bold">Отзывы граждан</h6>
+                <h1 class="mb-4">Ранние отзывы</h1>
+            </div>
+            {% for r in reviews %}
+                <div class="col-md-6 mb-5">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="{{ r.image.url }}" alt="">
+                        <div class="position-absolute bg-primary d-flex flex-column align-items-center justify-content-center rounded-circle"
+                            style="width: 60px; height: 60px; bottom: -30px; right: 30px;">
+                            <h4 class="font-weight-bold mb-n1">{{ r.date|date:'d' }}</h4>
+                            <small class="text-white text-uppercase">{{ r.date|date:'F' }}</small>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                            <div class="d-flex align-items-center">
+                                <a class="text-muted ml-2" href="">{{ r.full_name }}</a>
+                            </div>
+                        </div>
+                    <div class="bg-secondary" style="padding: 30px;">
+                        <h4 class="font-weight-bold mb-3">{{ r.title }}</h4>
+                        <p style="white-space: nowrap;
+                                overflow: hidden;
+                                padding: 5px;
+                                text-overflow: ellipsis;" >{{ r.review }}</p>
+                        <a class="border-bottom border-primary text-uppercase text-decoration-none" href="">Подробнее<i class="fa fa-angle-right"></i></a>
+                    </div>
+
+                </div>
+                {% endfor %}
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+
+    <!-- Blog Start -->
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="text-center pb-2">
+                <h6 class="text-primary text-uppercase font-weight-bold">Новости</h6>
+                <h1 class="mb-4">Ранние новости</h1>
+            </div>
+            <div class="row">
+                {% for new in news %}
+                <div class="col-md-6 mb-5">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="{{ new.image.url }}" alt="">
+                        <div class="position-absolute bg-primary d-flex flex-column align-items-center justify-content-center rounded-circle"
+                            style="width: 60px; height: 60px; bottom: -30px; right: 30px;">
+                            <h4 class="font-weight-bold mb-n1">{{ new.date|date:'d' }}</h4>
+                            <small class="text-white text-uppercase">{{ new.date|date:'F' }}</small>
+                        </div>
+                    </div>
+                    <div class="bg-secondary" style="padding: 30px;">
+                        <h4 class="font-weight-bold mb-3">{{ new.title }}</h4>
+                        <p style="white-space: nowrap;
+                                overflow: hidden;
+                                padding: 5px;
+                                text-overflow: ellipsis;" >{{ new.subtitle }}</p>
+                        <a class="border-bottom border-primary text-uppercase text-decoration-none" href="">Подробнее<i class="fa fa-angle-right"></i></a>
+                    </div>
+
+                </div>
+                {% endfor %}
+
+        </div>
+    </div>
+    <!-- Blog End -->
+
+{% endblock %}
